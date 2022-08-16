@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './screens/products_overview_screen.dart';
+import './screens/product_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,18 +16,19 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.lightBlue[800],
         fontFamily: 'Lato',
         textTheme: const TextTheme(
-          headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-          headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+          headline1: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),
       ),
       routes: {
         '/': (context) => ProductsOverviewScreen(),
-        // CategoryMealsScreen.routeName: (context) => const CategoryMealsScreen(),
+        ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => ProductsOverviewScreen());
       },
+      // home: ProductsOverviewScreen(),
     );
   }
 }
