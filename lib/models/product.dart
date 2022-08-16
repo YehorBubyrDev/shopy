@@ -1,3 +1,10 @@
+enum ProductCategories {
+  Jewelery,
+  ForMen,
+  ForWomen,
+  Accesiarites,
+}
+
 class Product {
   final String id;
   final String title;
@@ -6,7 +13,7 @@ class Product {
   final num? discountPercentage;
   final num? rating;
   final String brand;
-  final String category;
+  final ProductCategories category;
   final String imageUrl;
   bool isFavorite;
 
