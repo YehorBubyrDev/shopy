@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => ProductsOverviewScreen(),
-        ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
+        ProductDetailScreen.routeName: (context) => const ProductDetailScreen(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (ctx) => ProductsOverviewScreen());
