@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 import './providers/test_pizza_provider.dart';
-import './providers/products_provider.dart';
+import './providers/products_provider/products.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,12 +30,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => ProductsOverviewScreen(),
+          '/': (context) => const ProductsOverviewScreen(),
           ProductDetailScreen.routeName: (context) =>
               const ProductDetailScreen(),
         },
         onUnknownRoute: (settings) {
-          return MaterialPageRoute(builder: (ctx) => ProductsOverviewScreen());
+          return MaterialPageRoute(
+              builder: (ctx) => const ProductsOverviewScreen());
         },
         // home: ProductsOverviewScreen(),
       ),
