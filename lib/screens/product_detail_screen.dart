@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../data/mock_product_data.dart';
+import 'package:provider/provider.dart';
+import '../providers/products_provider.dart';
+import '../models/product.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   static String routeName = '/product-detail-screen';
@@ -8,8 +10,10 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productId = ModalRoute.of(context)?.settings.arguments as String;
+    List<Product> productsProvider =
+        Provider.of<ProductsProvider>(context).items;
     final selectedProduct =
-        mockProducts.firstWhere(((product) => product.id == productId));
+        productsProvider.firstWhere(((product) => product.id == productId));
     return Scaffold(
       appBar: AppBar(
         title: Text(selectedProduct.title),
