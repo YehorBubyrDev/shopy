@@ -18,6 +18,7 @@ class Product with ChangeNotifier {
   final ProductCategories category;
   final String imageUrl;
   bool isFavorite;
+  bool inCart;
 
   Product({
     required this.id,
@@ -30,10 +31,16 @@ class Product with ChangeNotifier {
     required this.category,
     required this.imageUrl,
     this.isFavorite = false,
+    this.inCart = false,
   });
 
   void toggleFavoriteStatus() {
     isFavorite = !isFavorite;
+    notifyListeners();
+  }
+
+  void toggleInCartStatus() {
+    inCart = !inCart;
     notifyListeners();
   }
 }

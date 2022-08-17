@@ -35,8 +35,10 @@ class ProductItem extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             trailing: IconButton(
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: (() => {}),
+              icon: Icon(product.inCart
+                  ? Icons.shopping_cart
+                  : Icons.shopping_cart_outlined),
+              onPressed: (() => product.toggleInCartStatus()),
               color: Theme.of(context).colorScheme.secondary,
             ),
           ),
