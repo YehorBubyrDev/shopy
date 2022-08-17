@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../models/product.dart';
+import './product.dart';
 
 class ProductsProvider with ChangeNotifier {
-  List<Product> _items = [
+  final List<Product> _items = [
     Product(
       id: 'p1',
       title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
@@ -90,12 +90,12 @@ class ProductsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Product findById(String id) {
-    return _items.firstWhere((product) => product.id == id);
-  }
-
   void removeProduct(String productId) {
     _items.removeWhere((product) => product.id == productId);
     notifyListeners();
+  }
+
+  Product findById(String id) {
+    return _items.firstWhere((product) => product.id == id);
   }
 }

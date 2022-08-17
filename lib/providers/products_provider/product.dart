@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 enum ProductCategories {
   Jewelery,
   ForMen,
@@ -5,7 +7,7 @@ enum ProductCategories {
   Accesiarites,
 }
 
-class Product {
+class Product with ChangeNotifier {
   final String id;
   final String title;
   final String description;
@@ -29,4 +31,9 @@ class Product {
     required this.imageUrl,
     this.isFavorite = false,
   });
+
+  void toggleFavoriteStatus() {
+    isFavorite = !isFavorite;
+    notifyListeners();
+  }
 }
