@@ -6,35 +6,33 @@ import '../screens/product_detail_screen.dart';
 class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context);
-    return GestureDetector(
-      onTap: (() => {
-            Navigator.of(context)
-                .pushNamed(ProductDetailScreen.routeName, arguments: product.id)
-          }),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: GridTile(
-          header: GridTileBar(
-            backgroundColor: Colors.black54,
-            title: Text(
-              product.title,
-              textAlign: TextAlign.center,
-            ),
+    final product = Provider.of<Product>(context, listen: false);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: GridTile(
+        header: GridTileBar(
+          backgroundColor: Colors.black54,
+          title: Text(
+            product.title,
+            textAlign: TextAlign.center,
           ),
-          footer: GridTileBar(
-            backgroundColor: Colors.black87,
-            leading: IconButton(
+        ),
+        footer: GridTileBar(
+          backgroundColor: Colors.black87,
+          leading: Consumer<Product>(
+            builder: (context, value, child) => IconButton(
                 icon: Icon(product.isFavorite
                     ? Icons.favorite
                     : Icons.favorite_outline),
                 onPressed: (() => product.toggleFavoriteStatus()),
                 color: Theme.of(context).colorScheme.secondary),
-            title: Text(
-              product.price.toString(),
-              textAlign: TextAlign.center,
-            ),
-            trailing: IconButton(
+          ),
+          title: Text(
+            product.price.toString(),
+            textAlign: TextAlign.center,
+          ),
+          trailing: Consumer<Product>(
+            builder: (context, value, child) => IconButton(
               icon: Icon(product.inCart
                   ? Icons.shopping_cart
                   : Icons.shopping_cart_outlined),
@@ -42,6 +40,12 @@ class ProductItem extends StatelessWidget {
               color: Theme.of(context).colorScheme.secondary,
             ),
           ),
+        ),
+        child: GestureDetector(
+          onTap: (() => {
+                Navigator.of(context).pushNamed(ProductDetailScreen.routeName,
+                    arguments: product.id)
+              }),
           child: Image.network(
             product.imageUrl,
             fit: BoxFit.cover,
