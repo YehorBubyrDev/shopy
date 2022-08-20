@@ -13,11 +13,23 @@ class CartItem {
       required this.title});
 }
 
-class Cart with ChangeNotifier {
-  late Map<String, CartItem> _items;
+class CartProvider with ChangeNotifier {
+  Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items {
     return {..._items};
+  }
+
+  int get itemsCount {
+    return _items.length;
+  }
+
+  double get totalAmount {
+    var total = 0.0;
+    _items.forEach((key, cartItem) {
+      total += cartItem.price * cartItem.quantity;
+    });
+    return total;
   }
 
   void addItem(String productId, String title, double price) {
@@ -41,5 +53,6 @@ class Cart with ChangeNotifier {
         ),
       );
     }
+    notifyListeners();
   }
 }

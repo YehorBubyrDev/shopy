@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class EmptyScreen extends StatelessWidget {
-  const EmptyScreen({Key? key}) : super(key: key);
+  final String title;
+  final IconData? icon;
+
+  const EmptyScreen({required this.title, this.icon, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +15,14 @@ class EmptyScreen extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.black54,
       ),
-      child: Column(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text("Nothing here yet.."),
+        children: [
+          Text(title),
+          const SizedBox(
+            width: 10,
+          ),
+          Icon(icon),
         ],
       ),
     );
