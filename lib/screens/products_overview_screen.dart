@@ -47,7 +47,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               });
             },
             icon: const Icon(
-              Icons.more_vert,
+              Icons.sort,
             ),
             itemBuilder: ((_) => [
                   const PopupMenuItem(
