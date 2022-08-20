@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopy/widgets/empty_sreen.dart';
+import '../screens/empty_screen.dart';
 import './product_item.dart';
 import '../providers/products_provider/products.dart';
 
@@ -15,7 +15,10 @@ class ProductGrid extends StatelessWidget {
         showFavorite ? productsData.favoriteItems : productsData.items;
 
     return products.isEmpty
-        ? const EmptyScreen()
+        ? const EmptyScreen(
+            title: 'Nothing here yet...',
+            icon: Icons.favorite,
+          )
         : GridView.builder(
             padding: const EdgeInsets.all(10.0),
             itemCount: products.length,

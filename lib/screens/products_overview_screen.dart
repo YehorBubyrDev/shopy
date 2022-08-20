@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopy/providers/cart_provider/cart.dart';
+import 'package:shopy/screens/cart_screen.dart';
+import 'package:shopy/widgets/badge.dart';
 import '../providers/products_provider/products.dart';
 import '../widgets/products_grid.dart';
 import '../models/enum/product.dart';
@@ -17,8 +20,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final backPack = Provider.of<ProductsProvider>(context).findById('p1');
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -26,15 +27,20 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           style: TextStyle(fontSize: 36),
         ),
         actions: <Widget>[
-          IconButton(
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
+          Consumer<CartProvider>(
+            builder: (_, cart, ch) => Badge(
+              value: cart.itemsCount.toString(),
+              child: ch as Widget,
             ),
-            onPressed: () {
-              Provider.of<ProductsProvider>(context, listen: false)
-                  .addProduct(backPack);
-            },
+            child: IconButton(
+              icon: const Icon(
+                Icons.shopping_bag,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
+            ),
           ),
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
@@ -59,7 +65,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                     child: Text('Show All'),
                   ),
                 ]),
-          )
+          ),
         ],
       ),
       body: ProductGrid(_showOnlyFavorites),
