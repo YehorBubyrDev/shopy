@@ -79,6 +79,55 @@ class ProductsProvider with ChangeNotifier {
       imageUrl:
           'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
     ),
+    Product(
+      id: 'p7',
+      title:
+          'Lock and Love Women\'s Removable Hooded Faux Leather Moto Biker Jacket',
+      description:
+          '100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON',
+      price: 29.95,
+      discountPercentage: 10,
+      brand: 'Gold century',
+      category: ProductCategories.ForWomen,
+      rating: 10,
+      imageUrl: 'https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg',
+    ),
+    Product(
+      id: 'p8',
+      title: 'Rain Jacket Women Windbreaker Striped Climbing Raincoats',
+      description:
+          'Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn\'t overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.',
+      price: 39.99,
+      discountPercentage: 10,
+      brand: 'Gold century',
+      category: ProductCategories.ForWomen,
+      rating: 10,
+      imageUrl: 'https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg',
+    ),
+    Product(
+      id: 'p9',
+      title: 'MBJ Women\'s Solid Short Sleeve Boat Neck V',
+      description:
+          '95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem',
+      price: 9.85,
+      discountPercentage: 10,
+      brand: 'Gold century',
+      category: ProductCategories.ForWomen,
+      rating: 10,
+      imageUrl: 'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg',
+    ),
+    Product(
+      id: 'p10',
+      title: 'Opna Women\'s Short Sleeve Moisture',
+      description:
+          '100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort',
+      price: 7.95,
+      discountPercentage: 10,
+      brand: 'Gold century',
+      category: ProductCategories.ForWomen,
+      rating: 10,
+      imageUrl: 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg',
+    ),
   ];
 
   List<Product> get items {

@@ -23,7 +23,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Shopy",
+          "Buba Magaz",
           style: TextStyle(fontSize: 36),
         ),
         actions: <Widget>[
