@@ -16,10 +16,9 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  var _showOnlyFavorites = false;
   final List<Map<String, Object>> _pages = [
     {
-      'page': const ProductsOverviewScreen(false),
+      'page': const ProductsOverviewScreen(),
       'title': 'Main',
     },
     {
@@ -67,15 +66,7 @@ class _TabsScreenState extends State<TabsScreen> {
             ),
           ),
           PopupMenuButton(
-            onSelected: (FilterOptions selectedValue) {
-              setState(() {
-                if (selectedValue == FilterOptions.Favorites) {
-                  _showOnlyFavorites = true;
-                } else {
-                  _showOnlyFavorites = false;
-                }
-              });
-            },
+            onSelected: (FilterOptions selectedValue) {},
             icon: const Icon(
               Icons.sort,
             ),
