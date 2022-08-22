@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
-import './empty_screen.dart';
+import 'package:provider/provider.dart';
+import '../screens/empty_screen.dart';
+import '../widgets/product_item.dart';
+import '../providers/products_provider/products.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  static const routeName = '/favorite-screen';
+  static const routeName = "/favorite-page";
   const FavoriteScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return (true
+    final productsData = Provider.of<ProductsProvider>(context);
+    final products = productsData.favoriteItems;
+
+    return products.isEmpty
         ? const EmptyScreen(
-            title: 'nothing here yet ...',
+            title: 'Nothing here yet...',
             icon: Icons.favorite,
           )
-        : const Text("Favorite screen"));
+        : GridView.builder(
+            padding: const EdgeInsets.all(10.0),
+            itemCount: products.length,
+            itemBuilder: (context, index) => ChangeNotifierProvider.value(
+              value: products[index],
+              child: ProductItem(),
+            ),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 10,
+            ),
+          );
   }
 }
