@@ -25,6 +25,10 @@ class _TabsScreenState extends State<TabsScreen> {
       'page': const FavoriteScreen(),
       'title': 'Favorites',
     },
+    {
+      'page': const ProductsOverviewScreen(),
+      'title': 'Settings',
+    },
   ];
 
   int _selectedPageIndex = 0;
@@ -73,11 +77,11 @@ class _TabsScreenState extends State<TabsScreen> {
             itemBuilder: ((_) => [
                   const PopupMenuItem(
                     value: FilterOptions.Favorites,
-                    child: Text('Your Favorites'),
+                    child: Text('About'),
                   ),
                   const PopupMenuItem(
-                    value: FilterOptions.All,
-                    child: Text('Show All'),
+                    value: FilterOptions.Favorites,
+                    child: Text('Privacy Policy'),
                   ),
                 ]),
           ),
@@ -96,6 +100,10 @@ class _TabsScreenState extends State<TabsScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),
