@@ -20,7 +20,7 @@ class EmptyScreen extends StatelessWidget {
         children: [
           Text(title),
           const SizedBox(
-            width: 10,
+            width: 5,
           ),
           Icon(icon),
         ],

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './screens/cart_screen.dart';
-import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 import './providers/products_provider/products.dart';
 import './providers/cart_provider/cart.dart';
 import './providers/orders_provider/order_provider.dart';
 import './screens/orders_screen.dart';
+import './screens/favorite_screen.dart';
+import './navigation/tab.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,15 +35,15 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const ProductsOverviewScreen(),
+          '/': (context) => const TabsScreen(),
           ProductDetailScreen.routeName: (context) =>
               const ProductDetailScreen(),
           CartScreen.routeName: (context) => const CartScreen(),
           OrdersScreen.routeName: (context) => const OrdersScreen(),
+          FavoriteScreen.routeName: (context) => const FavoriteScreen(),
         },
         onUnknownRoute: (settings) {
-          return MaterialPageRoute(
-              builder: (ctx) => const ProductsOverviewScreen());
+          return MaterialPageRoute(builder: (ctx) => const TabsScreen());
         },
       ),
     );
