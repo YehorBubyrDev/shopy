@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopy/screens/cart_screen.dart';
-import '../screens/orders_screen.dart';
+import '../screens/user_products_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);
@@ -51,21 +50,21 @@ class MainDrawer extends StatelessWidget {
             Icons.home,
             () => {Navigator.of(context).pushReplacementNamed('/')},
           ),
+          const Divider(),
           buildListTile(
-            'Orders',
-            Icons.shopping_cart,
+            'Manage products',
+            Icons.add_business,
             () => {
-              Navigator.of(context).pushNamed(OrdersScreen.routeName),
+              Navigator.of(context)
+                  .pushReplacementNamed(UserProductsScreen.routeName),
               Scaffold.of(context).closeDrawer()
             },
           ),
+          const Divider(),
           buildListTile(
-            'Cart',
-            Icons.shopping_bag,
-            () => {
-              Navigator.of(context).pushNamed(CartScreen.routeName),
-              Scaffold.of(context).closeDrawer()
-            },
+            'Settings',
+            Icons.settings,
+            () => {Navigator.of(context).pushReplacementNamed('/')},
           ),
         ],
       ),
