@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopy/navigation/drawer.dart';
+import '../navigation/drawer.dart';
+import '../screens/edit_product_screen.dart';
 import '../providers/products_provider/products.dart';
 import '../widgets/user_product.item.dart';
 
@@ -23,7 +24,10 @@ class UserProductsScreen extends StatelessWidget {
           ),
           actions: [
             IconButton(
-                onPressed: () => print('Add item'), icon: const Icon(Icons.add))
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(EditProductScreen.routeName),
+              icon: const Icon(Icons.add),
+            )
           ],
         ),
         drawer: const MainDrawer(),

@@ -73,12 +73,12 @@ class _TabsScreenState extends State<TabsScreen> {
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {},
             icon: const Icon(
-              Icons.sort,
+              Icons.info_outline,
             ),
             itemBuilder: ((_) => [
                   const PopupMenuItem(
                     value: FilterOptions.Favorites,
-                    child: Text('About'),
+                    child: Text('About us'),
                   ),
                   const PopupMenuItem(
                     value: FilterOptions.Favorites,
