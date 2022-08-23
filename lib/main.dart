@@ -7,6 +7,7 @@ import './providers/cart_provider/cart.dart';
 import './providers/orders_provider/order_provider.dart';
 import './screens/orders_screen.dart';
 import './screens/favorite_screen.dart';
+import './screens/user_products_screen.dart';
 import './navigation/tab.dart';
 
 void main() {
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           CartScreen.routeName: (context) => const CartScreen(),
           OrdersScreen.routeName: (context) => const OrdersScreen(),
           FavoriteScreen.routeName: (context) => const FavoriteScreen(),
+          UserProductsScreen.routeName: (context) => const UserProductsScreen(),
         },
         onUnknownRoute: (settings) {
           return MaterialPageRoute(builder: (ctx) => const TabsScreen());

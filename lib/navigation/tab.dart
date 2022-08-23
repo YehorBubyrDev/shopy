@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../screens/orders_screen.dart';
 import '../screens/favorite_screen.dart';
 import '../models/enum/product.dart';
 import '../providers/cart_provider/cart.dart';
@@ -26,8 +27,8 @@ class _TabsScreenState extends State<TabsScreen> {
       'title': 'Favorites',
     },
     {
-      'page': const ProductsOverviewScreen(),
-      'title': 'Settings',
+      'page': const OrdersScreen(),
+      'title': 'Orders',
     },
   ];
 
@@ -102,8 +103,8 @@ class _TabsScreenState extends State<TabsScreen> {
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.shopping_cart),
+            label: 'Orders',
           ),
         ],
       ),
