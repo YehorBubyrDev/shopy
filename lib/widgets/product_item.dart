@@ -48,17 +48,17 @@ class ProductItem extends StatelessWidget {
                         content: const Text(
                           'Added to cart!',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         action: SnackBarAction(
-                            textColor: Colors.white,
+                            textColor: Colors.black,
                             label: 'UNDO',
                             onPressed: () {
                               cart.removeItem(product.id);
                             }),
-                        backgroundColor: Colors.cyan,
+                        backgroundColor: Colors.cyanAccent,
                         behavior: SnackBarBehavior.floating,
                         duration: const Duration(milliseconds: 2000),
                       ))
