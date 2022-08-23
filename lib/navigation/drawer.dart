@@ -54,12 +54,18 @@ class MainDrawer extends StatelessWidget {
           buildListTile(
             'Orders',
             Icons.shopping_cart,
-            () => {Navigator.of(context).pushNamed(OrdersScreen.routeName)},
+            () => {
+              Navigator.of(context).pushNamed(OrdersScreen.routeName),
+              Scaffold.of(context).closeDrawer()
+            },
           ),
           buildListTile(
             'Cart',
             Icons.shopping_bag,
-            () => {Navigator.of(context).pushNamed(CartScreen.routeName)},
+            () => {
+              Navigator.of(context).pushNamed(CartScreen.routeName),
+              Scaffold.of(context).closeDrawer()
+            },
           ),
         ],
       ),
