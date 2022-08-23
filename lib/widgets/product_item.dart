@@ -28,14 +28,38 @@ class ProductItem extends StatelessWidget {
             backgroundColor: Colors.black87,
             leading: Consumer<Product>(
               builder: (context, value, child) => IconButton(
-                  icon: Icon(product.isFavorite
-                      ? Icons.favorite
-                      : Icons.favorite_outline),
-                  onPressed: (() => product.toggleFavoriteStatus()),
+                  icon: product.isFavorite
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.pink,
+                        )
+                      : const Icon(Icons.favorite_outline),
+                  onPressed: (() => {
+                        product.toggleFavoriteStatus(),
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: const Text(
+                            'Added to favorite!',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          action: SnackBarAction(
+                              textColor: Colors.white,
+                              label: 'UNDO',
+                              onPressed: () {
+                                product.toggleFavoriteStatus();
+                              }),
+                          backgroundColor: Colors.pink,
+                          behavior: SnackBarBehavior.floating,
+                          duration: const Duration(milliseconds: 2000),
+                        ))
+                      }),
                   color: Theme.of(context).colorScheme.secondary),
             ),
             title: Text(
-              product.price.toString(),
+              '\$${product.price.toString()}',
               textAlign: TextAlign.center,
             ),
             trailing: Consumer<Product>(
