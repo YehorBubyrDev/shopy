@@ -5,6 +5,7 @@ enum ProductCategories {
   ForMen,
   ForWomen,
   Accesiarites,
+  Unknown,
 }
 
 class Product with ChangeNotifier {
