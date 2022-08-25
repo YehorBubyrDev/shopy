@@ -92,7 +92,7 @@ class CartButton extends StatelessWidget {
                   onPressed: () {
                     cart.removeItem(product.id);
                   }),
-              backgroundColor: Colors.cyanAccent,
+              backgroundColor: Theme.of(context).colorScheme.secondary,
               behavior: SnackBarBehavior.floating,
               duration: const Duration(milliseconds: 2000),
             ))
@@ -114,9 +114,9 @@ class FavoriteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
         icon: product.isFavorite
-            ? const Icon(
+            ? Icon(
                 Icons.favorite,
-                color: Colors.pink,
+                color: Theme.of(context).colorScheme.secondary,
               )
             : const Icon(Icons.favorite_outline),
         onPressed: (() => product.isFavorite
@@ -128,17 +128,17 @@ class FavoriteButton extends StatelessWidget {
                   content: const Text(
                     'Added to favorite!',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   action: SnackBarAction(
-                      textColor: Colors.white,
+                      textColor: Colors.black,
                       label: 'UNDO',
                       onPressed: () {
                         product.toggleFavoriteStatus();
                       }),
-                  backgroundColor: Colors.pink,
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
                   behavior: SnackBarBehavior.floating,
                   duration: const Duration(milliseconds: 2000),
                 ))
