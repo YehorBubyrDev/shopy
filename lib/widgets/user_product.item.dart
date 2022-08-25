@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopy/providers/products_provider/products.dart';
 import '../screens/edit_product_screen.dart';
 
 class UserProductItem extends StatelessWidget {
@@ -34,7 +36,23 @@ class UserProductItem extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.delete),
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<ProductsProvider>(context, listen: false)
+                      .removeProduct(id);
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: const Text(
+                      'Product deleted!',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    backgroundColor: Theme.of(context).colorScheme.secondary,
+                    behavior: SnackBarBehavior.floating,
+                    duration: const Duration(milliseconds: 2000),
+                  ));
+                },
                 color: Theme.of(context).errorColor,
               ),
             ],
